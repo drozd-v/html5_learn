@@ -1,0 +1,245 @@
+@color: #fff;
+@font-face {
+	font-family: 'Raleway';
+	src: url(font/11855.ttf);
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	src: url(font/16785.ttf);
+}
+
+body {
+	min-width: 970px;
+	margin: 0 auto;
+	padding: 0;
+}
+
+.header {
+	background-image: url(../img/bgr-image-top.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	min-height: 100%;
+	padding: 5% 5%;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.top {
+	padding: 0 10%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.logo {
+	font-family: 'Raleway';
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+	font-size: 34px;
+	font-weight: 400;
+	color: @color;
+}
+
+nav {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.nav {
+	text-decoration: none;
+	margin-right: 20px;
+	font-family: 'Montserrat';
+	font-size: 14px;
+	line-height: 14px;
+	font-weight: 300;
+	color: @color;
+	&:nth-child(8) {
+		margin-right: 60px;
+	}
+	&:hover {
+		color:#c7b299;
+	}
+}
+
+.box {
+	background-image: url(../img/icon_box.png);
+	background-repeat: no-repeat;
+	margin-right: 20px;
+	width: 18px;
+	height: 24px;
+}
+
+
+.search {
+	display: block;
+	background-image: url(../img/icon_search.png);
+	background-repeat: no-repeat;
+	width: 24px;
+	height: 24px;
+	position: relative;
+	&:focus .place{
+		display: block;
+	}
+}
+.place {
+	display: none;
+	position: absolute;
+	top: 35px;
+	right: 0;
+    width: 300px;
+    border-radius: 10px;
+    color: @color;
+    outline: none;
+	padding: 5px;
+	background-color: transparent;
+	border: 1px solid @color;
+}
+
+.center_header {
+	display: grid;
+	grid-template-columns: 10% 80% 10%;
+	grid-template-rows: 643px 20px;
+	grid-template-areas: "button-left header_text button_rigth" ". radio_button .";
+}
+
+.arrow {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.button-left {
+	grid-area: button-left;
+	background-image: url(../img/left.png);
+	width: 40px;
+	height: 73px;
+	&:hover {
+		background-image: url(../img/right.png);
+		transform: rotate(180deg);
+	}
+	&:active {
+		box-shadow: inset 0 0 15px 0 #000;
+	}
+}
+
+.button-right {
+	grid-area: button-rigth;
+	place-self: center end;
+	background-image: url(../img/left.png);
+	transform: rotate(180deg);
+	width: 40px;
+	height: 73px;
+	&:hover {
+		background-image: url(../img/right.png);
+		transform: rotate(0deg);
+	}
+	&:active {
+		box-shadow: inset 0 0 15px 0 #000;
+	}
+}
+
+.header_text {
+	grid-area: header_text;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.radio_button {
+	grid-area: radio_button;
+	display: flex;
+	justify-content: center;
+}
+
+.h2_center {
+	font-family: Raleway;
+	font-size: 35px;
+	line-height: 35px;
+	font-weight: 500;
+	color: @color;
+	margin-bottom: 14px;
+	min-width: 0;
+}
+
+.h1_center {
+	font-family: Raleway;
+	font-size: 52px;
+	line-height: 52px;
+	font-weight: 800;
+	color: @color;
+	margin-bottom: 19px;
+	
+}
+
+.p_center {
+	margin: 0 0 52px 0;
+	font-family: Montserrat;
+	font-size: 16px;
+	line-height: 24px;
+	font-weight: 300;
+	color: @color;
+	max-width: 562px;
+	text-align: center;
+}
+
+.button_center {
+	padding: 21px 37px;
+	background-color: #998675;
+	border-radius: 3.0px;
+	font-family: Raleway;
+	font-size: 14px;
+	min-width: 170px;
+	font-weight: 800;
+	text-transform: uppercase;
+	text-decoration: none;
+	text-align: center;
+	color: @color;
+	&:hover {
+		box-shadow: 0 0 10px 5px #000;
+	}
+	&:active {
+		box-shadow: none;
+	}
+	
+}
+
+input[type="radio"] {
+	display: none;
+}
+
+.radio_item {
+	position: relative;
+	width: 11px;
+	margin: 0 10px 0 0;
+	&:last-child{
+		margin: 0;
+	}
+}
+
+label {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 11px;
+	height: 11px;
+	border-radius: 50%;
+	background-color: @color;
+	opacity: 0.3;
+}
+
+input[type="radio"]:checked + label{
+	display: block;
+	width: 11px;
+	height: 11px;
+	border: 2px solid @color;
+	border-radius: 50%;
+	background-color: transparent;
+	opacity: 1;
+}
