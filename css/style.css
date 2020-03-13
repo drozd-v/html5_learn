@@ -46,7 +46,7 @@ body {
 .header {
   background-image: url(../img/bgr-image-top.png);
   background-repeat: no-repeat;
-  background-position: center;
+  background-size: cover;
   min-height: 100%;
   padding: 40px 150px;
   box-sizing: border-box;
@@ -59,6 +59,12 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.button_menu {
+  display: none;
+}
+.menu {
+  display: none;
 }
 .logo {
   font-family: 'raleway';
@@ -294,7 +300,6 @@ input[type="radio"] {
 }
 .direction_item {
   margin: 0 33px 0 0;
-  box-shadow: 0px 88px 0 -85px #555555;
   display: flex;
   flex-direction: column;
   max-width: 266px;
@@ -306,6 +311,9 @@ input[type="radio"] {
 .direction_item .direction_image {
   fill: #555555;
 }
+.direction_item:hover::after {
+  background-color: #c7b299;
+}
 .direction_item:hover,
 .direction_item:hover span,
 .direction_item:hover p,
@@ -313,7 +321,9 @@ input[type="radio"] {
 .direction_item:hover h3 {
   color: #c7b299;
   fill: #c7b299;
-  box-shadow: 0px 88px 0 -85px #c7b299;
+}
+.direction_item:active::after {
+  background-color: #555555;
 }
 .direction_item:active,
 .direction_item:active span,
@@ -322,7 +332,12 @@ input[type="radio"] {
 .direction_item:active h3 {
   color: #555555;
   fill: #555555;
-  box-shadow: 0px 88px 0 -85px #555555;
+}
+.direction_item::after {
+  content: '';
+  width: 70px;
+  height: 3px;
+  background-color: #555555;
 }
 .direction_item_h3 {
   margin: 29px 0 19px 0;
@@ -553,6 +568,7 @@ input[type="radio"] {
   align-items: flex-start;
   justify-content: center;
   min-height: 100px;
+  top: -1px;
   background-color: #fbfaf8;
   position: relative;
   padding-left: 29px;
@@ -647,6 +663,9 @@ input[type="radio"] {
   box-sizing: border-box;
   height: 705px;
 }
+.video_mobile {
+  display: none;
+}
 .video_content_top {
   position: absolute;
   top: calc(50% - 144px);
@@ -703,6 +722,7 @@ input[type="radio"] {
   background-color: #fbfaf8;
   display: flex;
   justify-content: center;
+  align-items: flex-end;
   margin: 0;
   box-sizing: border-box;
   padding: 0;
@@ -717,9 +737,10 @@ input[type="radio"] {
 }
 .modile_device_content {
   max-width: 660px;
-  margin: 195px 0 0 0;
+  margin: 0 0 195px 0;
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
 }
 .mobile_device_h1 {
   margin: 0;
@@ -854,7 +875,7 @@ input[type="radio"] {
 }
 .posts {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr 22px;
   grid-column-gap: 30px;
   grid-row-gap: 40px;
@@ -1007,6 +1028,8 @@ input[type="radio"] {
   align-items: center;
   min-height: 489px;
   background-image: url(../img/bg_photo_partner.png);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .partner_link {
   margin-right: 90px;
@@ -1027,7 +1050,7 @@ input[type="radio"] {
   display: flex;
   justify-content: center;
 }
-.about_waxon {
+.about_waxom {
   display: flex;
   flex-direction: column;
 }
@@ -1052,7 +1075,6 @@ input[type="radio"] {
   line-height: 24px;
   font-weight: 300;
   color: #fff;
-  max-width: 258px;
 }
 .about_link {
   text-decoration: none;
@@ -1113,6 +1135,9 @@ input[type="radio"] {
   color: #555555;
   margin: 10px 0 21px 0;
 }
+.post_waxom_text:last-child {
+  margin-bottom: 0;
+}
 .post_waxom_item {
   border-bottom: 1px solid #252525;
   display: flex;
@@ -1159,6 +1184,9 @@ input[type="radio"] {
   font-weight: 300;
   color: #363636;
   margin: 11px 0 20px 0;
+}
+.our_twitter_date:last-child {
+  margin-bottom: 0;
 }
 .our_twiter_text {
   font-family: 'montserrat';
@@ -1250,4 +1278,254 @@ input[type="radio"] {
 }
 .footer .footer_right .min_text {
   color: #959595;
+}
+@media screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  html,
+  body {
+    max-width: 480px;
+    min-width: 320px;
+    line-height: 1.15;
+  }
+  .header {
+    padding: 20px;
+    flex-direction: row;
+  }
+  .top {
+    padding: 0;
+  }
+  .button_menu {
+    display: flex;
+    position: relative;
+    left: 234px;
+    z-index: 6;
+  }
+  .button_style {
+    display: flex;
+    position: absolute;
+    width: 20px;
+    height: 3px;
+    background-color: #fff;
+  }
+  .button_style::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    display: block;
+    width: 20px;
+    height: 2px;
+    background-color: #fff;
+  }
+  .button_style::before {
+    content: '';
+    position: absolute;
+    bottom: 10px;
+    display: block;
+    width: 20px;
+    height: 2px;
+    background-color: #fff;
+  }
+  nav {
+    display: none;
+  }
+  .menu:checked ~ nav {
+    display: flex;
+    z-index: 5;
+  }
+  .menu:checked ~ .logo {
+    z-index: 6;
+  }
+  .menu:checked ~ .button_menu {
+    position: fixed;
+    left: calc(100% - 40px);
+    transform: skewX(-20deg);
+  }
+  .nav_list {
+    height: 100%;
+    padding: 100px 0 0 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    top: 0;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    left: 0;
+  }
+  .nav_item:nth-child(n) {
+    margin: 25px 0;
+  }
+  .nav_item:last-child {
+    margin-bottom: 0;
+  }
+  .nav_item .nav_link {
+    font-size: 18px;
+  }
+  .place {
+    transition: 1s;
+    display: none;
+    position: absolute;
+    top: 35px;
+    z-index: 3;
+    right: -150px;
+    width: 300px;
+    border-radius: 10px;
+    color: #fff;
+    outline: none;
+    padding: 5px;
+    background-color: transparent;
+    border: 1px solid #fff;
+  }
+  .center_header {
+    display: none;
+  }
+  .direction {
+    padding: 20px;
+    flex-wrap: wrap;
+  }
+  .direction .direction_item {
+    width: 45%;
+    margin: 0 5px 20px 0;
+  }
+  .direction .direction_item:nth-child(n+3) {
+    margin-bottom: 0;
+  }
+  .direction .direction_item:nth-child(2n) {
+    margin-right: 0;
+  }
+  .realization_idea {
+    display: none;
+  }
+  .forget {
+    display: none;
+  }
+  .latest {
+    padding: 40px 0;
+    font-size: 14px;
+  }
+  .latest .latest_list {
+    margin: 30px 0;
+  }
+  .latest .latest_item {
+    font-size: 10px;
+    padding: 2px 15px;
+  }
+  .article {
+    justify-content: center;
+  }
+  .article .article_item {
+    margin: 30px 0;
+  }
+  .article .article_item:last-child {
+    margin: 0;
+  }
+  .video_bgr .video {
+    display: none;
+  }
+  .video_bgr .video_mobile {
+    display: block;
+    width: 480px;
+  }
+  .video_bgr .video_content_top {
+    left: calc(50% - 240px);
+  }
+  .video_bgr .video_content_top .video_p {
+    max-width: 460px;
+    font-size: 12px;
+  }
+  .video_bgr .video_content_top .video_h1 {
+    font-size: 25px;
+  }
+  .modile_device {
+    position: relative;
+    padding: 0 20px;
+  }
+  .modile_device .image_left_hand {
+    position: absolute;
+    top: 249px;
+    left: 0;
+    height: 273px;
+    width: 192px;
+    margin: 0;
+  }
+  .modile_device .modile_device_content {
+    display: flex;
+    align-items: center;
+    margin: 0 0 94px 0;
+    margin-top: 30px;
+    z-index: 3;
+  }
+  .modile_device .modile_device_content .modile_device_span {
+    margin: 10px 0;
+    font-size: 15px;
+    text-align: center;
+  }
+  .modile_device .modile_device_content .modile_device_list {
+    margin-left: 192px;
+  }
+  .modile_device .modile_device_content .modile_device_span_item {
+    margin-left: 30px;
+    display: flex;
+    font-size: 15px;
+  }
+  .statistics {
+    flex-wrap: wrap;
+    padding: 30px 0;
+  }
+  .statistics .statistics_item:nth-child(n) {
+    margin: 0 70px 20px 0;
+  }
+  .statistics .statistics_item:last-child {
+    margin: 0;
+  }
+  .statistics .statistics_item:nth-child(2n) {
+    margin-right: 0;
+  }
+  .recent_posts {
+    padding: 30px 0;
+  }
+  .recent_posts .posts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .recent_posts .posts .posts_item {
+    margin-bottom: 30px;
+  }
+  .partner {
+    min-height: 250px;
+  }
+  .partner .partner_link {
+    transform: scale(0.3);
+    margin-right: -100px;
+  }
+  .partner .partner_link:last-child {
+    margin: 0;
+  }
+  footer .data_website {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 1fr 1.5fr 1fr;
+    grid-auto-flow: row dense;
+    grid-gap: 0;
+  }
+  footer .data_website .about_waxom {
+    align-items: center;
+    text-align: center;
+    grid-column: 1 / span 2;
+    grid-row: 1;
+  }
+  footer .data_website .also_website {
+    align-items: center;
+    grid-column: 1 / span 2;
+    grid-row: 3;
+  }
+  footer .footer {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  footer .footer .footer_left {
+    margin-bottom: 20px;
+  }
 }
