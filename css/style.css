@@ -44,6 +44,7 @@ body {
   padding: 0;
 }
 .header {
+  width: 100%;
   background-image: url(../img/bgr-image-top.png);
   background-repeat: no-repeat;
   background-size: cover;
@@ -139,23 +140,39 @@ body {
   background-color: transparent;
   border: none;
 }
+.box:hover {
+  cursor: pointer;
+}
+@keyframes search {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 300px;
+  }
+}
 .search {
   outline: none;
   background-image: url(../img/icon_search.png);
   background-repeat: no-repeat;
   width: 24px;
   height: 24px;
+  background-color: transparent;
+  border: none;
   position: relative;
 }
-.search:focus-within form .place {
+.search:hover {
+  cursor: pointer;
+}
+.search:focus-within .place {
   display: block;
+  animation: search 2s forwards;
 }
 .place {
   display: none;
   position: absolute;
   top: 35px;
   right: 0;
-  width: 300px;
   border-radius: 10px;
   color: #fff;
   outline: none;
@@ -293,6 +310,7 @@ input[type="radio"] {
   opacity: 0.3;
 }
 .direction {
+  width: 100%;
   margin: 0;
   padding: 80px 0;
   display: flex;
@@ -358,6 +376,7 @@ input[type="radio"] {
   text-align: center;
 }
 .realization_idea {
+  width: 100%;
   background-color: #fbfaf8;
   margin: 0;
   padding: 83px 0 0 0;
@@ -471,6 +490,7 @@ input[type="radio"] {
   box-shadow: none;
 }
 .latest {
+  width: 100%;
   display: flex;
   flex-direction: column;
   padding: 81px 0;
@@ -658,6 +678,7 @@ input[type="radio"] {
   color: #ffffff;
 }
 .video_bgr {
+  width: 100%;
   position: relative;
   margin: 0;
   box-sizing: border-box;
@@ -719,6 +740,7 @@ input[type="radio"] {
   color: #c7b299;
 }
 .modile_device {
+  width: 100%;
   background-color: #fbfaf8;
   display: flex;
   justify-content: center;
@@ -737,6 +759,7 @@ input[type="radio"] {
 }
 .modile_device_content {
   max-width: 660px;
+  min-height: 371px;
   margin: 0 0 195px 0;
   display: flex;
   flex-direction: column;
@@ -763,6 +786,7 @@ input[type="radio"] {
   margin: 0 0 0 50px;
 }
 .modile_device_item {
+  cursor: pointer;
   display: block;
   float: left;
   outline: none;
@@ -786,6 +810,7 @@ input[type="radio"] {
   color: #8c8c8c;
 }
 .statistics {
+  width: 100%;
   margin: 0;
   padding: 69px 0 60px 0;
   display: flex;
@@ -849,6 +874,7 @@ input[type="radio"] {
   text-align: center;
 }
 .recent_posts {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -916,9 +942,6 @@ input[type="radio"] {
   background-color: #a48d72;
   transition: 0.8s;
 }
-.posts_item:active {
-  box-shadow: 0 0 5px 1px #000;
-}
 .post_content {
   margin: 0;
   display: flex;
@@ -955,6 +978,7 @@ input[type="radio"] {
   color: #fff;
 }
 .post_link:hover .arrow {
+  visibility: visible;
   border-left: 4px solid #fff;
 }
 .post_link:active {
@@ -1000,6 +1024,7 @@ input[type="radio"] {
   color: #fff;
 }
 .arrow {
+  visibility: hidden;
   display: inline-flex;
   border-top: 4px solid transparent;
   border-left: 4px solid #c7b299;
@@ -1023,6 +1048,7 @@ input[type="radio"] {
   fill: #211b19;
 }
 .partner {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1089,6 +1115,7 @@ input[type="radio"] {
 }
 .about_link:hover .about_arrow {
   border-left: 4px solid #c7b299;
+  visibility: visible;
 }
 .about_link:active {
   color: #d1d1d1;
@@ -1097,6 +1124,7 @@ input[type="radio"] {
   border-left: 4px solid #d1d1d1;
 }
 .about_arrow {
+  visibility: hidden;
   display: inline-flex;
   border-top: 4px solid transparent;
   border-left: 4px solid #fff;
@@ -1237,7 +1265,7 @@ input[type="radio"] {
 .footer {
   display: flex;
   justify-content: space-between;
-  padding: 45px 376px 52px 376px ;
+  padding: 45px 376px 52px 376px;
   background-color: #111111;
   font-family: 'montserrat';
   font-size: 13px;
@@ -1279,12 +1307,10 @@ input[type="radio"] {
 .footer .footer_right .min_text {
   color: #959595;
 }
-@media screen and (min-device-width: 320px) and (max-device-width: 480px) {
-  html,
+@media (min-width: 320px) and (max-width: 480px) {
   body {
     max-width: 480px;
     min-width: 320px;
-    line-height: 1.15;
   }
   .header {
     padding: 20px;
@@ -1296,14 +1322,13 @@ input[type="radio"] {
   .button_menu {
     display: flex;
     position: relative;
-    left: 234px;
-    z-index: 6;
+    left: 224px;
   }
   .button_style {
     display: flex;
     position: absolute;
-    width: 20px;
-    height: 3px;
+    width: 30px;
+    height: 2px;
     background-color: #fff;
   }
   .button_style::after {
@@ -1311,7 +1336,7 @@ input[type="radio"] {
     position: absolute;
     top: 10px;
     display: block;
-    width: 20px;
+    width: 30px;
     height: 2px;
     background-color: #fff;
   }
@@ -1320,36 +1345,101 @@ input[type="radio"] {
     position: absolute;
     bottom: 10px;
     display: block;
-    width: 20px;
+    width: 30px;
     height: 2px;
     background-color: #fff;
   }
   nav {
-    display: none;
+    visibility: hidden;
+    height: 0;
+  }
+  nav .nav_list {
+    position: fixed;
+    top: -100%;
+  }
+  @keyframes menu_mobile_after {
+    from {
+      top: 10px;
+    }
+    to {
+      top: 0;
+      transform: rotate(90deg);
+    }
+  }
+  @keyframes menu_mobile_before {
+    from {
+      bottom: 10px;
+    }
+    to {
+      bottom: 0;
+    }
+  }
+  @keyframes menu_mobile {
+    from {
+      z-index: 6;
+    }
+    to {
+      transform: rotate(45deg);
+    }
+  }
+  @keyframes logo_opas {
+    from {
+      z-index: 6;
+      opacity: 0.2;
+    }
+    to {
+      z-index: 6;
+      opacity: 1;
+    }
   }
   .menu:checked ~ nav {
-    display: flex;
+    display: block;
+    height: auto;
+    visibility: visible;
     z-index: 5;
   }
-  .menu:checked ~ .logo {
-    z-index: 6;
-  }
-  .menu:checked ~ .button_menu {
-    position: fixed;
-    left: calc(100% - 40px);
-    transform: skewX(-20deg);
-  }
-  .nav_list {
+  .menu:checked ~ nav .nav_list {
     height: 100%;
     padding: 100px 0 0 0;
     background-color: rgba(0, 0, 0, 0.7);
-    position: fixed;
     top: 0;
     display: flex;
     width: 100%;
     flex-direction: column;
     align-items: center;
     left: 0;
+    transition: 2s;
+  }
+  .menu:not(:checked) ~ .button_menu {
+    z-index: 6;
+  }
+  .menu:not(:checked) ~ nav .nav_list {
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    bottom: 100%;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    left: 0;
+    transition: 1s;
+  }
+  .menu:checked ~ .logo {
+    animation: logo_opas 4.5s forwards;
+  }
+  .menu:checked ~ .button_menu {
+    position: fixed;
+    left: calc(100% - 50px);
+    z-index: 6;
+  }
+  .menu:checked ~ .button_menu .button_style {
+    animation: 0.5s menu_mobile 1s forwards;
+  }
+  .menu:checked ~ .button_menu .button_style:before {
+    animation: 0.5s menu_mobile_before 0.97s forwards;
+  }
+  .menu:checked ~ .button_menu .button_style:after {
+    animation: 0.5s menu_mobile_after 1s forwards;
   }
   .nav_item:nth-child(n) {
     margin: 25px 0;
@@ -1379,7 +1469,7 @@ input[type="radio"] {
     display: none;
   }
   .direction {
-    padding: 20px;
+    padding: 20px 0;
     flex-wrap: wrap;
   }
   .direction .direction_item {
@@ -1406,8 +1496,8 @@ input[type="radio"] {
     margin: 30px 0;
   }
   .latest .latest_item {
-    font-size: 10px;
-    padding: 2px 15px;
+    font-size: 12px;
+    padding: 2px 11px;
   }
   .article {
     justify-content: center;
@@ -1448,8 +1538,8 @@ input[type="radio"] {
     margin: 0;
   }
   .modile_device .modile_device_content {
+    min-height: 398px;
     display: flex;
-    align-items: center;
     margin: 0 0 94px 0;
     margin-top: 30px;
     z-index: 3;
@@ -1459,8 +1549,11 @@ input[type="radio"] {
     font-size: 15px;
     text-align: center;
   }
+  .modile_device .modile_device_content .mobile_device_h1 {
+    text-align: center;
+  }
   .modile_device .modile_device_content .modile_device_list {
-    margin-left: 192px;
+    margin-left: 155px;
   }
   .modile_device .modile_device_content .modile_device_span_item {
     margin-left: 30px;
@@ -1523,7 +1616,7 @@ input[type="radio"] {
   footer .footer {
     flex-direction: column;
     align-items: center;
-    padding: 20px;
+    padding: 20px 0;
   }
   footer .footer .footer_left {
     margin-bottom: 20px;
